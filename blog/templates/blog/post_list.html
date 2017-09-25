@@ -8,16 +8,24 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="">Think's blog</a></h1>
         </div>
 
-        {% for post in posts %}
-            <div>
-                <p>Publicado: {{ post.data_publicacao }}</p>
-                <h1><a href="">{{ post.titulo }}</a> </h1>
-                <p>{{ post.texto|linebreaksbr }}</p>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>publicado: {{ post.data_publicacao }}</p>
+                            </div>
+                            <h1><a href="">{{ post.titulo }}</a></h1>
+                            <p>{{ post.texto|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
+        </div>
     </body>
 </html>
