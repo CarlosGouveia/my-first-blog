@@ -11,7 +11,10 @@
         <div class="page-header">
 
             <h1><a href="">Think's blog</a></h1>
-            <a href="{% url 'post_new' %}" class="top-menu" style="color: #000000" ><span class="glyphicon glyphicon-plus" style="top: 20px"></span></a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu" style="color: #ffffff" ><span class="glyphicon glyphicon-plus" style="top: -45px"></span></a>
+            {% endif %}
+
 
         </div>
 
