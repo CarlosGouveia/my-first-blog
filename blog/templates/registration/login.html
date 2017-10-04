@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4 form-group">
+                {% if form.errors %}
+                    <p>Usuário ou senha incorreto. Tente novamente.</p>
+                {% endif %}
+
+                <form class="form" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                    </table>
+
+                    <input type="submit" value="login"/>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+<!--  <div class="container">
+        <div class="row">
+            <div class="span12" style="text-align:center; margin: 0 auto;">
+                <form class="form-horizontal" style="width: 400px; margin: 0 auto;" method="post" action="/form/">
+                    <fieldset>
+                        <legend>Please login</legend>
+                        <div class="control-group">
+                            <label class="control-label" for="id_username">Username</label>
+                            <div class="controls">
+                                <input name="username" maxlength="100" placeholder="Enter your username..." type="text" class="input-large" id="id_username" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="id_password">Password</label>
+                            <div class="controls">
+                                <input name="password" maxlength="100" placeholder="Enter your password..." type="password" class="input-large" id="id_password" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+-->
